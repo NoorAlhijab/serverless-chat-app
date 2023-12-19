@@ -2,9 +2,10 @@ import {GetObjectCommand, S3Client} from '@aws-sdk/client-s3';
 
 const client = new S3Client({});
 
-const bucket = '<your bucket name>';
+const bucket = 'chat-app-noor';
 
-export const handler = async function () {
+export const handler = async function (event, context) {
+    console.log(context)
     try {
         const response = await client.send(new GetObjectCommand({
             Bucket: bucket,
